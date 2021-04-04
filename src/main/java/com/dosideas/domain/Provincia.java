@@ -25,24 +25,24 @@ public class Provincia implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idProvincia;
-    private Long idPais;
+    private Long id;
+    private Long id_pais;
     private String nombre;
-
-    public Long getIdProvincia() {
-        return idProvincia;
+/* !!!!tiene que tener los mismos nombres que la tabla creada*/
+    public Long getId() {
+        return id;
     }
 
-    public void setIdProvincia(Long idProvincia) {
-        this.idProvincia = idProvincia;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Long getIdPais() {
-        return idPais;
+    public Long getId_pais() {
+        return id_pais;
     }
 
-    public void setIdPais(Long idPais) {
-        this.idPais = idPais;
+    public void setId_pais(Long id_pais) {
+        this.id_pais = id_pais;
     }
 
     public String getNombre() {
@@ -52,6 +52,4 @@ public class Provincia implements Serializable {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-
 }

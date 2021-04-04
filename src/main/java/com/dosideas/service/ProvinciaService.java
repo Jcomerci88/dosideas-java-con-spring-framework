@@ -11,6 +11,6 @@ import java.util.List;
 public interface ProvinciaService {
 
     Provincia buscarPorId(Long id);
-
+    List<Provincia> buscarTodos();
 
 }

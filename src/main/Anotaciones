@@ -1,0 +1,50 @@
+Controller
+-Rest
+        Tiene algo parecido a la clase, pero es /api
+        Aca se busca por id y revisa si es nulo el parametro o el retorno
+        ! no entiendo porque estan separados o su uso
+-Clases
+        /**
+         * Este es un controlador de presentación (que se define anotándolo con
+         * @Controller). Se encarga de atender peticiones HTTP y devolver una vista para
+         * que muestre HTML al cliente.
+         *
+         * La anotación @RequestMapping en un método indica que ese método se invoca
+         * cuando se recibe una petición HTTP con esa dirección. El método en cuestión
+         * devuelve un Sring, que representa la vista (página HTML).
+         */
+Domain
+        /**
+         * Este objeto de dominio utiliza anotaciones para relacionar la clase y sus
+         * atributos con una tabla. JPA (a través de Hibernate) utiliza estas anotaciones
+         * para acceder a la base de datos e interactuar con objetos de esta clase.
+         */
+        @Entity
+        Los nombres tienen que ser igual a los definidos en schema para ser tomados, me paso de poner unos propios
+        y daba error de tabla
+
+Exception
+        /**
+         * Excepción lanzada en caso de no encontrar el pais buscado.
+         *
+         * Por medio de la anotación @ResponseStatus indicamos que, en caso de que esta
+         * excepción sea lanzada, se le asociará el código de error NOT_FOUND (404). De
+         * esta forma el cliente verá dicho error.
+         *
+         */
+         por ahora no entiendo muy bien las excepciones, cuando se disparen por api quizas la vea porque con consola
+         no las encontre en TEST
+
+Repository
+        /** Este es una interfaz de acceso a datos, que utiliza Spring Data para
+         * implementar el repositorio.
+         * Contiene varios métodos heredados, que permiten buscar Paises por distintos
+         * criterios, guardar un pais, borrarlo, etc.
+         */
+         copie y pegue lo de pais, no se que hace o los usos que tiene
+Service
+        /** Esta es la interfaz (contrato) de un componente de la capa de lógica de negocio.
+         * Contiene las operaciones que la capa de lógica de negocio expone para operar
+         * con instancias de Pais.
+         */
+         estan las interfaces pero no encuentro la funcionalidad donde està, ES LO QUE ESTA EN REST??

@@ -6,6 +6,8 @@ import com.dosideas.service.ProvinciaService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 /**
  * Esta es la clase de negocio que expone operaciones relacionadas con el objeto
  * de dominio Pais.
@@ -22,13 +24,14 @@ import org.springframework.transaction.annotation.Transactional;
  * conseguir una instancia de su dependencia.
  *
  */
+/*
 @Service
 @Transactional
-public class ProvinciaRepositoryImpl implements ProvinciaService {
+public class ProvinciaRepositoryImpl2 implements ProvinciaService {
 
     private final ProvinciaRepository provinciaRepository;
 
-    public ProvinciaRepositoryImpl(ProvinciaRepository provinciaRepository) {
+    public ProvinciaRepositoryImpl2(ProvinciaRepository provinciaRepository) {
         this.provinciaRepository = provinciaRepository;
     }
 
@@ -37,9 +40,10 @@ public class ProvinciaRepositoryImpl implements ProvinciaService {
         return provinciaRepository.findById(id).orElse(null);
     }
 
-    /*@Override
-    public List<Pais> buscarTodos() {
-        return paisRepository.findAll();
+    @Override
+    public List<Provincia> buscarTodos() {
+        return provinciaRepository.findAll();
     }
-    */
+
 }
+*/

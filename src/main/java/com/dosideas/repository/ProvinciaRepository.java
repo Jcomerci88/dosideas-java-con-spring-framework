@@ -9,5 +9,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * criterios, guardar un pais, borrarlo, etc.
  */
 public interface ProvinciaRepository extends JpaRepository<Provincia, Long> {
- // Provincia findById(Long id); esto va aca?
+  //Provincia findById(Long id); //esto va aca?
 }

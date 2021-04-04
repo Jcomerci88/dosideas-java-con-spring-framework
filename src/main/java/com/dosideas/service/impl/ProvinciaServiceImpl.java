@@ -39,6 +39,11 @@ public class ProvinciaServiceImpl implements ProvinciaService {
         return provinciaRepository.findById(id).orElse(null);
     }
 
+    @Override
+    public List<Provincia> buscarTodos() {
+        return provinciaRepository.findAll();
+    }
+
 
 
 }
