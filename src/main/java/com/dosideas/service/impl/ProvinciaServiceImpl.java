@@ -7,10 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Esta es la clase de negocio que expone operaciones relacionadas con el objeto
- * de dominio Pais.
+ * de dominio Provincia.
  *
  * La anotación @Service es de Spring, y le indica a Spring que esta clase
  * deberá ser tratada como clase de servicios. Spring registrará esta clase para
@@ -30,20 +31,29 @@ public class ProvinciaServiceImpl implements ProvinciaService {
 
     private final ProvinciaRepository provinciaRepository;
 
+    //constructor
     public ProvinciaServiceImpl(ProvinciaRepository provinciaRepository) {
         this.provinciaRepository = provinciaRepository;
     }
 
+    //sobreescribe metodos de interface usando funciones jpa
     @Override
     public Provincia buscarPorId(Long id) {
-        return provinciaRepository.findById(id).orElse(null);
+
+        //return provinciaRepository.findById(id).orElse(null);
+
+//Crearemos el código en el Service de forma tal que si viene un id válido, devuelva una provincia con ese id,
+// y como nombre la palabra "PROVINCIA" seguido del id.
+        final Optional<Provincia> idBusqueda = provinciaRepository.findById(id);
+        if (idBusqueda == null) {
+            return null;
+        }else{
+            return id + (" PROVINCIA" + id); //???
+
+        }
+
+
+
     }
-
-    @Override
-    public List<Provincia> buscarTodos() {
-        return provinciaRepository.findAll();
-    }
-
-
 
 }

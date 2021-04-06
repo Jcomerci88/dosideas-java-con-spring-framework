@@ -48,3 +48,18 @@ Service
          * con instancias de Pais.
          */
          estan las interfaces pero no encuentro la funcionalidad donde està, ES LO QUE ESTA EN REST??
+
+
+!!!anotar como identar, como arreglar los imports
+
+
+Es decir, Spring es un factory de objetos que inyecta dependencias.
+
+Estos objetos en Spring se conocen como "beans". Una clase se define como bean al agregarle alguna de estas
+anotaciones: @Component, @Controller, @RestController, @Service, @Repository. Además, allí mismo se declaran las
+propiedades del objeto que tienen dependencias a otros beans marcandolas con la anotación @Autowired.
+
+
+!!inyeccion de dependencias, poner estereotipo (service, domain. etc) , y autowied, sirve para no instanciar el objeto
+en cada capa
+https://www.youtube.com/watch?v=sLY9umEahso&ab_channel=MitoCode

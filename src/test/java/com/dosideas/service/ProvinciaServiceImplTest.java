@@ -2,6 +2,7 @@ package com.dosideas.service;
 
 import com.dosideas.ApplicationConfig;
 import com.dosideas.domain.Provincia;
+import com.dosideas.service.impl.ProvinciaServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,22 +51,39 @@ public class ProvinciaServiceImplTest {
     @Autowired
     private ProvinciaService provinciaService;
 
+
+    //!!yo creo variable de tipo provincia service (que es una interface) , pero necesita la implementacion, porque
+    //se ejecuta el service y no la implementacion??
     /**
      * Test de buscarPorId method con un id existente. El metodo debe encontrar
      * un Provincia con el id buscado.
      */
     @Test
-    public void  buscarPorId_conIdExistente_retornaProvincia() {
-        //que es la L?
+    public void  buscarPorId_conIdExistente_retornaProvincia()
+    {
         Long id = 1L;
-        //que esta haciendo esto, instanciando ?
         Provincia provincia = provinciaService.buscarPorId(id);
+
 
         assertThat(provincia).isNotNull();
         assertThat(provincia.getId()).isEqualTo(id);
-        System.out.println(provincia.getNombre());
+        
     }
+/*  prueba
+    private ProvinciaServiceImpl provinciaService2;
 
+    @Test
+    public void  buscarPorId_conIdExistente_retornaProvincia2()
+    {
+        Long id = 1L;
+        Provincia provincia = provinciaService2.buscarPorId(id);
+
+
+        assertThat(provincia).isNotNull();
+        assertThat(provincia.getId()).isEqualTo(id);
+
+    }
+*/
     /**
      * Test de buscarPorId method con un id inexistente. El metodo debe devolver
      * null al buscar un id que no existe.
