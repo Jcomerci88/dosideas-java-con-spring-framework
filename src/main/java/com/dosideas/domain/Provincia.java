@@ -10,15 +10,6 @@ import java.io.Serializable;
  * Este objeto de dominio utiliza anotaciones para relacionar la clase y sus
  * atributos con una tabla. JPA (a través de Hibernate) utiliza estas anotaciones
  * para acceder a la base de datos e interactuar con objetos de esta clase.
- * CREATE TABLE pais (
- *     id BIGINT IDENTITY PRIMARY KEY,
- *     nombre VARCHAR(50)
- * );
- *
- * CREATE TABLE provincia (
- *     id BIGINT IDENTITY PRIMARY KEY,
- *     id_pais BIGINT FOREIGN KEY REFERENCES pais,
- *     nombre VARCHAR(50)
  */
 @Entity
 public class Provincia implements Serializable {
@@ -28,7 +19,8 @@ public class Provincia implements Serializable {
     private Long id;
     private Long id_pais;
     private String nombre;
-/* !!!!tiene que tener los mismos nombres que la tabla creada*/
+
+
     public Long getId() {
         return id;
     }
