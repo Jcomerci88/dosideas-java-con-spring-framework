@@ -40,20 +40,14 @@ public class ProvinciaServiceImpl implements ProvinciaService {
     @Override
     public Provincia buscarPorId(Long id) {
 
-        //return provinciaRepository.findById(id).orElse(null);
-
 //Crearemos el código en el Service de forma tal que si viene un id válido, devuelva una provincia con ese id,
 // y como nombre la palabra "PROVINCIA" seguido del id.
-        final Optional<Provincia> idBusqueda = provinciaRepository.findById(id);
-        if (idBusqueda == null) {
-            return null;
-        }else{
-            return id + (" PROVINCIA" + id); //???
+        Provincia provinciaId = provinciaRepository.findById(id).orElse(null);
+        if (provinciaId != null) {
+            provinciaId.setNombre("PROVINCIA"+id);
 
         }
-
-
-
+        return provinciaId;
     }
 
 }

@@ -67,23 +67,10 @@ public class ProvinciaServiceImplTest {
 
         assertThat(provincia).isNotNull();
         assertThat(provincia.getId()).isEqualTo(id);
+        System.out.println(provincia.getNombre());
         
     }
-/*  prueba
-    private ProvinciaServiceImpl provinciaService2;
 
-    @Test
-    public void  buscarPorId_conIdExistente_retornaProvincia2()
-    {
-        Long id = 1L;
-        Provincia provincia = provinciaService2.buscarPorId(id);
-
-
-        assertThat(provincia).isNotNull();
-        assertThat(provincia.getId()).isEqualTo(id);
-
-    }
-*/
     /**
      * Test de buscarPorId method con un id inexistente. El metodo debe devolver
      * null al buscar un id que no existe.
@@ -94,6 +81,9 @@ public class ProvinciaServiceImplTest {
 
         Provincia provincia = provinciaService.buscarPorId(id);
         assertThat(provincia).isNull();
+
+        //System.out.println(provincia.getNombre());
+        //java.lang.NullPointerException: Cannot invoke "com.dosideas.domain.Provincia.getNombre()" because "provincia" is null
     }
 
     /**
