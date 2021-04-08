@@ -63,3 +63,13 @@ propiedades del objeto que tienen dependencias a otros beans marcandolas con la 
 !!inyeccion de dependencias, poner estereotipo (service, domain. etc) , y autowied, sirve para no instanciar el objeto
 en cada capa
 https://www.youtube.com/watch?v=sLY9umEahso&ab_channel=MitoCode
+
+
+
+
+
+Cosas que no entendi
+
+Construcción de un Service dummy
+ProvinciaRepository provinciaRepository = new ProvinciaRepositoryImpl();
+Conclusion, problema de esto?

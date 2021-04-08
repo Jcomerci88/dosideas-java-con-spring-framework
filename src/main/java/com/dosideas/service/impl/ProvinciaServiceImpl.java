@@ -6,9 +6,6 @@ import com.dosideas.service.ProvinciaService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
-
 /**
  * Esta es la clase de negocio que expone operaciones relacionadas con el objeto
  * de dominio Provincia.
@@ -29,7 +26,12 @@ import java.util.Optional;
 @Transactional
 public class ProvinciaServiceImpl implements ProvinciaService {
 
+
+    //despues de "agregado de repository -Construcción de la clase de negocio"
     private final ProvinciaRepository provinciaRepository;
+    //ProvinciaRepository provinciaRepository = new ProvinciaRepositoryImpl();
+
+
 
     //constructor
     public ProvinciaServiceImpl(ProvinciaRepository provinciaRepository) {
@@ -42,6 +44,7 @@ public class ProvinciaServiceImpl implements ProvinciaService {
 
 //Crearemos el código en el Service de forma tal que si viene un id válido, devuelva una provincia con ese id,
 // y como nombre la palabra "PROVINCIA" seguido del id.
+        //aca no se accede a datos para obtener nombre provincia en esta parte del ejercicio
         Provincia provinciaId = provinciaRepository.findById(id).orElse(null);
         if (provinciaId != null) {
             provinciaId.setNombre("PROVINCIA"+id);

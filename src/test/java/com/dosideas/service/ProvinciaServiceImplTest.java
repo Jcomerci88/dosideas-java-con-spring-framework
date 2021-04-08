@@ -63,8 +63,14 @@ public class ProvinciaServiceImplTest {
     {
         Long id = 1L;
         Provincia provincia = provinciaService.buscarPorId(id);
-
-
+        //error al tener ProvinciaRepositoryImpl2:
+        //java.lang.AssertionError:
+        //Expecting actual not to be null
+/**
+ * Ahora bien, cuando ejecutes los tests, los mismos fallarán por un simpático NullPointerException seguramente...
+ * y es que, ¿quién está seteando a nuestro Repository? Será entonces nuestro test quien deba crear una instancia
+ * del Repository, setearsela al Service, y recién entonces ejecutar el test. A modificar el test entonces!
+ */
         assertThat(provincia).isNotNull();
         assertThat(provincia.getId()).isEqualTo(id);
         System.out.println(provincia.getNombre());
@@ -74,6 +80,10 @@ public class ProvinciaServiceImplTest {
     /**
      * Test de buscarPorId method con un id inexistente. El metodo debe devolver
      * null al buscar un id que no existe.
+     *
+     * Tendremos ahora creados el primer Service de la aplicación, con su primer test. Noten la importancia de testear
+     * el contrato del Service: futuros cambios a esta implementación estarán siendo controlados por el tests, y se
+     * encontrará rápidamente cualquier cambio en el comportamiento de nuestra implementación.
      */
     @Test
     public void buscarPorId_conIdInexistente_retornaNull() {
