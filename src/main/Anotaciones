@@ -1,3 +1,49 @@
+Diseño
+1-Primero sugiere dibujar un diagrama, pero no se como se relacionan
+2-Dice de hacer interfaz de repository  Provincia findById(Long id); (no lo hice)
+3-Implementacion repository Es decir, el nombre de la implementación del Repository tendrá la palabra "Dummy" para
+identificar esta implementación "rápida" de la real.
+4- El servicio buscarPorId está recibiendo un Long como parámetro. ¿Se te ocurre alguna optimización para la
+ firma de este método?
+
+TDD
+Construcción de un Service dummy
+Crear ProvinciaServiceImplTest
+
+Así, en el test, deberemos invocar al método correspondiente del Service con un id existente, y realizar un assert
+para verificar que la provincia devuelta no sea null, y contenga el id buscado... y el test fallará porque
+no existe la clase!
+
+Crear dominio y servicio, me pide crear clase repository
+
+Test funciona ok
+
+Pagina: Construccion clase negocio
+
+Vamos a mejorar el Service para desacoplar el acceso a datos. Para esto, moveremos la "lógica dummy" de
+obtener la Provincia a una clase Repository.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Controller
 -Rest
         Tiene algo parecido a la clase, pero es /api

@@ -6,51 +6,31 @@ import com.dosideas.service.ProvinciaService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-/**
- * Esta es la clase de negocio que expone operaciones relacionadas con el objeto
- * de dominio Provincia.
- *
- * La anotación @Service es de Spring, y le indica a Spring que esta clase
- * deberá ser tratada como clase de servicios. Spring registrará esta clase para
- * ser inyectada en donde sea necesario.
- *
- * La anotación @Transactional indica que todos los métodos de esta clase
- * deberán ser transaccionales (necesario para JPA).
- *
- * El constructor de esta clase recibe su dependencia obligatoria. Esto le
- * indica a Spring que para constuir una instancia de esta clase deberá primero
- * conseguir una instancia de su dependencia.
- *
- */
+import java.util.List;
+
+
 @Service
 @Transactional
 public class ProvinciaServiceImpl implements ProvinciaService {
 
+    private final ProvinciaRepository paisRepository;
 
-    //despues de "agregado de repository -Construcción de la clase de negocio"
-    private final ProvinciaRepository provinciaRepository;
-    //ProvinciaRepository provinciaRepository = new ProvinciaRepositoryImpl();
-
-
-
-    //constructor
-    public ProvinciaServiceImpl(ProvinciaRepository provinciaRepository) {
-        this.provinciaRepository = provinciaRepository;
+    public ProvinciaServiceImpl(ProvinciaRepository paisRepository) {
+        this.paisRepository = paisRepository;
     }
 
-    //sobreescribe metodos de interface usando funciones jpa
+
     @Override
     public Provincia buscarPorId(Long id) {
-
-//Crearemos el código en el Service de forma tal que si viene un id válido, devuelva una provincia con ese id,
-// y como nombre la palabra "PROVINCIA" seguido del id.
-        //aca no se accede a datos para obtener nombre provincia en esta parte del ejercicio
-        Provincia provinciaId = provinciaRepository.findById(id).orElse(null);
-        if (provinciaId != null) {
-            provinciaId.setNombre("PROVINCIA"+id);
-
+        Provincia retorno = paisRepository.findById(id).orElse(null);
+        if (retorno != null) {
+            retorno.setNombre("PROVINCIA"+id);
         }
-        return provinciaId;
+
+        return retorno;
     }
+
+    //mover esta logica de setear provincia al implementador del repository?
+
 
 }

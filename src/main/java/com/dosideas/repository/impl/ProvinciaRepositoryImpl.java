@@ -10,7 +10,12 @@ import org.springframework.data.domain.Sort;
 import java.util.List;
 import java.util.Optional;
 
-public class ProvinciaRepositoryImpl2 implements ProvinciaRepository {
+public class ProvinciaRepositoryImpl implements ProvinciaRepository {
+
+    @Override
+    public Optional<Provincia> findById(Long aLong) {
+        return Optional.empty();
+    }
 
     @Override
     public List<Provincia> findAll() {
@@ -67,10 +72,7 @@ public class ProvinciaRepositoryImpl2 implements ProvinciaRepository {
         return null;
     }
 
-    @Override
-    public Optional<Provincia> findById(Long aLong) {
-        return Optional.empty();
-    }
+
 
     @Override
     public boolean existsById(Long aLong) {

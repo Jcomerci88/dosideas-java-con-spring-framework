@@ -2,7 +2,6 @@ package com.dosideas.service;
 
 import com.dosideas.ApplicationConfig;
 import com.dosideas.domain.Provincia;
-import com.dosideas.service.impl.ProvinciaServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,34 +47,28 @@ public class ProvinciaServiceImplTest {
      * inyecte automáticamente. En los tests no se puede usar constructor como
      * mecanismo de inyección de dependencias.
      */
-    @Autowired
-    private ProvinciaService provinciaService;
 
-
-    //!!yo creo variable de tipo provincia service (que es una interface) , pero necesita la implementacion, porque
-    //se ejecuta el service y no la implementacion??
     /**
      * Test de buscarPorId method con un id existente. El metodo debe encontrar
      * un Provincia con el id buscado.
      */
+    @Autowired
+    private ProvinciaService provinciaService;
+
     @Test
     public void  buscarPorId_conIdExistente_retornaProvincia()
     {
         Long id = 1L;
         Provincia provincia = provinciaService.buscarPorId(id);
-        //error al tener ProvinciaRepositoryImpl2:
-        //java.lang.AssertionError:
-        //Expecting actual not to be null
-/**
- * Ahora bien, cuando ejecutes los tests, los mismos fallarán por un simpático NullPointerException seguramente...
- * y es que, ¿quién está seteando a nuestro Repository? Será entonces nuestro test quien deba crear una instancia
- * del Repository, setearsela al Service, y recién entonces ejecutar el test. A modificar el test entonces!
- */
+
         assertThat(provincia).isNotNull();
         assertThat(provincia.getId()).isEqualTo(id);
         System.out.println(provincia.getNombre());
         
     }
+    //!!yo creo variable de tipo provincia service (que es una interface) , pero necesita la implementacion, porque
+    //se ejecuta el service y no la implementacion??
+
 
     /**
      * Test de buscarPorId method con un id inexistente. El metodo debe devolver
