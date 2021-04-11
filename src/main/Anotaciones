@@ -23,6 +23,10 @@ Pagina: Construccion clase negocio
 Vamos a mejorar el Service para desacoplar el acceso a datos. Para esto, moveremos la "lógica dummy" de
 obtener la Provincia a una clase Repository.
 
+Donde me quede?
+Sacando autowired en el test (testbasico)
+Saque logica copiada jpa en repository, me quede trabado
+
 
 
 

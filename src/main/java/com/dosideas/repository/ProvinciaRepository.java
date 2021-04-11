@@ -8,6 +8,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Contiene varios métodos heredados, que permiten buscar Provincia es por distintos
  * criterios, guardar un pais, borrarlo, etc.
  */
-public interface ProvinciaRepository extends JpaRepository<Provincia , Long> {
+//public interface ProvinciaRepository extends JpaRepository<Provincia , Long> {
+    //comento porque no tiene que acceder a la base real segun el ejercicio
+
+public interface ProvinciaRepository {
+    Provincia findById(Long id);
+
 
 }
