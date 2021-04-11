@@ -6,7 +6,6 @@ import com.dosideas.repository.ProvinciaRepository;
 
 public class ProvinciaRepositoryImpl implements ProvinciaRepository {
 
-    ProvinciaRepository provinciaRepository = new ProvinciaRepositoryImpl();
 
     @Override
     public Provincia findById(Long id) {

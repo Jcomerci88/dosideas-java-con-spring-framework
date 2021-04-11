@@ -4,6 +4,7 @@ import com.dosideas.ApplicationConfig;
 import com.dosideas.domain.Provincia;
 import com.dosideas.repository.ProvinciaRepository;
 import com.dosideas.repository.impl.ProvinciaRepositoryImpl;
+import com.dosideas.service.impl.ProvinciaServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class ProvinciaServiceImplTestBasico {
     public void  buscarPorId_conIdExistente_retornaProvincia()
     {
         Long id = 1L;
-        ProvinciaService provinciaService = new ProvinciaService()
+        ProvinciaService provinciaService = new ProvinciaServiceImpl();
         Provincia provincia = provinciaService.buscarPorId(id);
 
         assertThat(provincia).isNotNull();
