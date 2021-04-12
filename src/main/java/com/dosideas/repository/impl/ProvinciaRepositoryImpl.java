@@ -1,4 +1,4 @@
-package com.dosideas.repository.impl;
+/*package com.dosideas.repository.impl;
 
 import com.dosideas.domain.Provincia;
 import com.dosideas.repository.ProvinciaRepository;
@@ -16,3 +16,6 @@ public class ProvinciaRepositoryImpl implements ProvinciaRepository {
     }
 
 }
+
+
+ */

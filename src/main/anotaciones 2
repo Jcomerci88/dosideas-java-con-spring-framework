@@ -1,0 +1,30 @@
+CAPA PRESENTACION
+	CONTROLLER
+LOGICA NEGOCIO
+	DOMAIN EXCEPTION SERVICE
+ACCESO DATOS
+	REPOSITORY
+	CONSULTA A APIS/SERVICIOS EXTERNOS
+
+
+VER DIAGRAMA DE SECUENCIAS
+REFRESCAR MAVEN
+REFRESCAR GIT
+
+java 8 y 11 /ver cambios
+
+
+repository test poner la fruta
+test sin springboot test
+
+libreria dummy mockito (?
+
+metodo devuelve tipo optional, tipo provincia , puede ser nulo o el objeto (evitar nullpointerexception)
+
+test automatizado, ambiente staging, pipeline sin conexion, no se puede usar repository, uso uno dummy
+mejor en test inyeccion manual que autowired
+
+
+corregir los casos de prueba
+revisar inyeccion de dependencias, jugar con eso
+diagrama de secuencia y clase

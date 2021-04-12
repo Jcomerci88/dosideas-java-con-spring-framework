@@ -2,6 +2,7 @@ package com.dosideas.service;
 
 import com.dosideas.ApplicationConfig;
 import com.dosideas.domain.Provincia;
+import com.dosideas.dummy.ProvinciaRepositoryDummy;
 import com.dosideas.repository.ProvinciaRepository;
 import com.dosideas.repository.impl.ProvinciaRepositoryImpl;
 import com.dosideas.service.impl.ProvinciaServiceImpl;
@@ -17,7 +18,7 @@ import static org.assertj.core.api.Assertions.fail;
 
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = ApplicationConfig.class)
+//@SpringBootTest(classes = ApplicationConfig.class)
 public class ProvinciaServiceImplTestBasico {
 
 
@@ -25,7 +26,8 @@ public class ProvinciaServiceImplTestBasico {
     public void  buscarPorId_conIdExistente_retornaProvincia()
     {
         Long id = 1L;
-        ProvinciaService provinciaService = new ProvinciaServiceImpl();
+        // esto es inyeccion de dependencia
+        ProvinciaService provinciaService = new ProvinciaServiceImpl(new ProvinciaRepositoryDummy());
         Provincia provincia = provinciaService.buscarPorId(id);
 
         assertThat(provincia).isNotNull();
