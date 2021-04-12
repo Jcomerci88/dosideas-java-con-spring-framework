@@ -38,7 +38,8 @@ public class ProvinciaServiceImpl implements ProvinciaService {
         //if (retorno != null) {
         //    retorno.setNombre("PROVINCIA"+id);
         //}
-
+        System.out.println("pasa por servicio");
+        System.out.println(retorno.getNombre());
         return retorno;
     }
 

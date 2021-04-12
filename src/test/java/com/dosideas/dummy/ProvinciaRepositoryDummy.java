@@ -14,12 +14,19 @@ import java.util.Optional;
 public class ProvinciaRepositoryDummy implements ProvinciaRepository {
 
 
+
     @Override
     public Optional<Provincia> findById(Long id) {
+        System.out.println("parametro ingresado es " + id);
         Provincia provinciaBusq = new Provincia();
-        provinciaBusq.setNombre("PROVINCIA");
+        provinciaBusq.setNombre("PROVINCIA"+id);
         provinciaBusq.setId(id);
-        return Optional.of(provinciaBusq);
+        if (id > 21) {
+            System.out.println("Entro a if y deberia setear nulo");
+            provinciaBusq =  null;
+        }
+        //return Optional.of(provinciaBusq);
+        return Optional.ofNullable(provinciaBusq);
     }
 
     @Override
