@@ -13,6 +13,4 @@ public interface ProvinciaRepository extends JpaRepository<Provincia , Long> {
 
 //public interface ProvinciaRepository {
   //  Provincia findById(Long id);
-
-
 }

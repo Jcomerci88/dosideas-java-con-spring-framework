@@ -25,6 +25,35 @@ test automatizado, ambiente staging, pipeline sin conexion, no se puede usar rep
 mejor en test inyeccion manual que autowired
 
 
-corregir los casos de prueba
+corregir los casos de prueba , pude hacer el de null, el de exception no lo entiendo (agregue if y era instanciar excepcion)
 revisar inyeccion de dependencias, jugar con eso
 diagrama de secuencia y clase
+
+diagrama de secuencia, es lo que habia visto con ibarra
+
+___________________________________________
+dia 13/4
+
+null java
+undefined javascript
+opcional evita esos casos de nullpoint
+revisar esto “guard clauses” para prolijidad, poner las condiciones de salidas arriba, logica de negocio pura abajo  (crear objeto)
+
+
+test unitario el test basico, el otro de integracion o funcional
+
+diagrama de clases
+composicion y herencia fundamentales , ver como se dibujan y que significa
+
+serializable es interface que se va a guardar en una base o transmitir por una red
+transforma objeto en memoria en binario (para guardar en disco o cable de red)
+requisito para entity
+
+
+usuario controller repository service
+
+hacer un caso de uso , obtener una provincia
+como va haciendo el camino
+usar pagina de ibarra
+
+

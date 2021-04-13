@@ -14,20 +14,25 @@ import java.util.Optional;
 public class ProvinciaRepositoryDummy implements ProvinciaRepository {
 
 
+    //private Object IllegalArgumentException;
 
     @Override
     public Optional<Provincia> findById(Long id) {
-        System.out.println("parametro ingresado es " + id);
-        Provincia provinciaBusq = new Provincia();
-        provinciaBusq.setNombre("PROVINCIA"+id);
-        provinciaBusq.setId(id);
+        //“guard clauses”
+        if (id == null) {
+            throw new IllegalArgumentException();
+        }
         if (id > 21) {
             System.out.println("Entro a if y deberia setear nulo");
-            provinciaBusq =  null;
+            return Optional.empty();
         }
-        //return Optional.of(provinciaBusq);
-        return Optional.ofNullable(provinciaBusq);
+        System.out.println("parametro ingresado es " + id);
+        Provincia provinciaBusq = new Provincia();
+        provinciaBusq.setNombre("PROVINCIA" + id);
+        provinciaBusq.setId(id);
+        return Optional.of(provinciaBusq);
     }
+
 
     @Override
     public boolean existsById(Long aLong) {

@@ -22,6 +22,11 @@ public class ProvinciaServiceImpl implements ProvinciaService {
     @Autowired
     private final ProvinciaRepository provinciaRepository;
 
+
+    //
+    // !!!!!!!!!!si no es con autowired como seria?
+    //
+
     //para que esta aca? se usa?
     //una vez que se setea no se puede modificar, una forma para que spring es hacer un metodo setter
     //como es final, no puede ser setter, solo se puede con constructor
@@ -38,9 +43,10 @@ public class ProvinciaServiceImpl implements ProvinciaService {
         //if (retorno != null) {
         //    retorno.setNombre("PROVINCIA"+id);
         //}
-        System.out.println("pasa por servicio");
-        System.out.println(retorno.getNombre());
+        //System.out.println("pasa por servicio");
+        //System.out.println(retorno.getNombre());
         return retorno;
+
     }
 
     //mover esta logica de setear provincia al implementador del repository?

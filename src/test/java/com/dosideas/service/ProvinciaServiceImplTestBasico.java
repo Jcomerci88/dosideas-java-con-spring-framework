@@ -39,12 +39,14 @@ public class ProvinciaServiceImplTestBasico {
     public void buscarPorId_conIdInexistente_retornaNull() {
         Long id = 23L;
 
-
+        //si quiero usar ProvinciaRepository normal, es una interface no me va a dejar instanciar, deberia crear una
+        //con cero funcionalidad?
         ProvinciaService provinciaService = new ProvinciaServiceImpl(new ProvinciaRepositoryDummy());
 
         Provincia provinciaNull = provinciaService.buscarPorId(id);
-        System.out.println("provincia null es : " + provinciaNull);
+
         assertThat(provinciaNull).isNull();
+        System.out.println("provincia null es : " + provinciaNull);
 
         /*
         Ahora bien, cuando ejecutes los tests, los mismos fallarán por un simpático NullPointerException seguramente...
@@ -53,13 +55,13 @@ public class ProvinciaServiceImplTestBasico {
          */
 
         //me da error porque ejecuta ProvinciaRepositoryDummy , lo comentaré
-
+        //el error daba porque no puedo hacer sout sobre algo que es nulo
 
         //System.out.println(provincia.getNombre());
         //java.lang.NullPointerException: Cannot invoke "com.dosideas.domain.Provincia.getNombre()" because "provincia" is null
     }
 
-    @Test(expected = InvalidDataAccessApiUsageException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void buscarPorId_conIdNull_lanzaExcepcion() {
         ProvinciaService provinciaService = new ProvinciaServiceImpl(new ProvinciaRepositoryDummy());
         provinciaService.buscarPorId(null);

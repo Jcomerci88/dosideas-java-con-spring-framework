@@ -58,11 +58,12 @@ public class ProvinciaServiceImplTest {
     @Test
     public void  buscarPorId_conIdExistente_retornaProvincia()
     {
-        Long id = 1L;
+        Long id = 20L;
         Provincia provincia = provinciaService.buscarPorId(id);
 
         assertThat(provincia).isNotNull();
         assertThat(provincia.getId()).isEqualTo(id);
+        assertThat(provincia.getNombre()).isEqualTo("Santa Cruz");
         System.out.println(provincia.getNombre());
         
     }
