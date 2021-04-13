@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 
 @Service
 @Transactional
@@ -21,15 +19,6 @@ public class ProvinciaServiceImpl implements ProvinciaService {
     // se saca por ejercicio
     @Autowired
     private final ProvinciaRepository provinciaRepository;
-
-
-    //
-    // !!!!!!!!!!si no es con autowired como seria?
-    //
-
-    //para que esta aca? se usa?
-    //una vez que se setea no se puede modificar, una forma para que spring es hacer un metodo setter
-    //como es final, no puede ser setter, solo se puede con constructor
 
     public ProvinciaServiceImpl(ProvinciaRepository provinciaRepository) {
         this.provinciaRepository = provinciaRepository;

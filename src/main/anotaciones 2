@@ -52,8 +52,15 @@ requisito para entity
 
 usuario controller repository service
 
+!!!!!!HACER!!!
 hacer un caso de uso , obtener una provincia
 como va haciendo el camino
 usar pagina de ibarra
+0
+
+
+La solución: inyección de dependencia
+Ya que el problema es realizar el "new", es evidente que nuestro Service no deberá más instanciar él mismo al Repository.
+ Es decir, delegaremos la instanciación de este Repositorya un tercero.
 
 

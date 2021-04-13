@@ -3,7 +3,7 @@
 import com.dosideas.domain.Provincia;
 import com.dosideas.repository.ProvinciaRepository;
 
-
+@repository
 public class ProvinciaRepositoryImpl implements ProvinciaRepository {
 
 

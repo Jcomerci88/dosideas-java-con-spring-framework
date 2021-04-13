@@ -1,11 +1,14 @@
 package com.dosideas.service;
 
+import com.dosideas.ApplicationConfig;
 import com.dosideas.domain.Pais;
 import com.dosideas.domain.Provincia;
 import com.dosideas.dummy.ProvinciaRepositoryDummy;
 import com.dosideas.service.impl.ProvinciaServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.InvalidDataAccessApiUsageException;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -14,10 +17,11 @@ import static org.assertj.core.api.Assertions.fail;
 
 
 @RunWith(SpringRunner.class)
-//@SpringBootTest(classes = ApplicationConfig.class)
+@SpringBootTest(classes = ApplicationConfig.class)  //sin esto no funciona test autowired
 public class ProvinciaServiceImplTestBasico {
 
-
+    @Autowired
+    ProvinciaService instance;
 
     @Test
     public void  buscarPorId_conIdExistente_retornaProvincia()
@@ -35,6 +39,21 @@ public class ProvinciaServiceImplTestBasico {
 
     }
 
+    @Test
+    public void  buscarPorId_conIdExistente_retornaProvincia_autowired()
+    {
+        Long id = 10L;
+        // esto es inyeccion de dependencia
+        //ProvinciaService provinciaService = new ProvinciaServiceImpl(new ProvinciaRepositoryDummy());
+        //Provincia provincia = provinciaService.buscarPorId(id);
+
+        Provincia provincia =  instance.buscarPorId(id);
+
+        assertThat(provincia).isNotNull();
+        assertThat(provincia.getId()).isEqualTo(id);
+        System.out.println(provincia.getNombre());
+
+    }
     @Test
     public void buscarPorId_conIdInexistente_retornaNull() {
         Long id = 23L;
