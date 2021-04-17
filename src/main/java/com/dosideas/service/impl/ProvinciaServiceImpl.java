@@ -1,11 +1,16 @@
 package com.dosideas.service.impl;
 
 import com.dosideas.domain.Provincia;
+import com.dosideas.exception.NombreInvalidoException;
+import com.dosideas.exception.PaisNoEncontradoException;
 import com.dosideas.repository.ProvinciaRepository;
 import com.dosideas.service.ProvinciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Collection;
+import java.util.List;
 
 
 @Service
@@ -20,6 +25,7 @@ public class ProvinciaServiceImpl implements ProvinciaService {
     @Autowired
     private final ProvinciaRepository provinciaRepository;
 
+    //se puede hacer por constructor o por setter
     public ProvinciaServiceImpl(ProvinciaRepository provinciaRepository) {
         this.provinciaRepository = provinciaRepository;
     }
@@ -37,8 +43,18 @@ public class ProvinciaServiceImpl implements ProvinciaService {
         return retorno;
 
     }
-
-    //mover esta logica de setear provincia al implementador del repository?
-
-
+    @Override
+    public List<Provincia> buscarProvinciasPorNombreExacto(String nombre) throws NombreInvalidoException {
+        if (nombre == null || nombre.length() < 3) {
+            throw new NombreInvalidoException("Nombre invalido = NULL");
+        }
+        List<Provincia> provinciasList = provinciaRepository.findByNombre(nombre);
+        return provinciasList;
+    }
 }
+    /*
+    public Collection<Provincia> buscarProvinciasPorNombreExacto(String nombre){
+        Collection<Provincia> retorno = provinciaRepository.findByNombre(nombre);
+        return retorno;
+    }
+ */

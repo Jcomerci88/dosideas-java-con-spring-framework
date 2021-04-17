@@ -1,9 +1,6 @@
 package com.dosideas.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -17,7 +14,9 @@ public class Provincia implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name= "id_pais")
     private Long id_pais;
+    @Column(name="nombre")
     private String nombre;
 
 /** Mismo nombre que tabla

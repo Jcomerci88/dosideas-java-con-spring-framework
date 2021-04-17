@@ -34,6 +34,14 @@ public class ProvinciaRepositoryDummy implements ProvinciaRepository {
         return Optional.of(provinciaBusq);
     }
 
+    @Override
+    public List<Provincia> findByNombre(String nombre) {
+        return null;
+    }
+
+    public Object buscarProvinciasPorNombreExacto(String nombre){
+        return null;
+    }
 
     @Override
     public boolean existsById(Long aLong) {
@@ -150,6 +158,7 @@ public class ProvinciaRepositoryDummy implements ProvinciaRepository {
         return false;
     }
 }
+
 
 
 
