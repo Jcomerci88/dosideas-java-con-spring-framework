@@ -39,6 +39,12 @@ public class ProvinciaRepositoryDummy implements ProvinciaRepository {
         return null;
     }
 
+    @Override
+    public List<Provincia> findByNombreIgnoreCase(String nombre) {
+        return null;
+    }
+
+
     public Object buscarProvinciasPorNombreExacto(String nombre){
         return null;
     }

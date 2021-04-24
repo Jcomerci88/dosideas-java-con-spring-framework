@@ -9,15 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.fail;
 
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ApplicationConfig.class)
-public class ProvinciaServiceImplTestNuevosMetodos {
+public class ProvinciaServiceImplTestNombreGeneral {
 
     @Autowired
     ProvinciaService instance;
@@ -26,16 +26,27 @@ public class ProvinciaServiceImplTestNuevosMetodos {
     @Test
     public void  buscarPorNombre_conNombreExistente_retornaProvincia() throws NombreInvalidoException {
         //diferencia entre collection y list , porque collection no me andaba?(sugerencia curso)
-        String nombreProvincia = "Buenos Aires";
-        List<Provincia> provinciaList =  instance.buscarProvinciasPorNombreExacto(nombreProvincia);
+        String nombreProvincia = "BUenos Aires";
+        List<Provincia> provinciaList =  instance.buscarProvinciasPorNombreGeneral(nombreProvincia);
         assertThat(provinciaList).isNotNull();
 
+
         for (Provincia regArrayList:provinciaList){
-            assertThat(regArrayList.getNombre()).isEqualTo(nombreProvincia);
-            System.out.println(regArrayList.getNombre());
+            assertThat(regArrayList.getNombre()).isEqualToIgnoringCase(nombreProvincia);
+            //assertThat(regArrayList.getNombre()).isEqualTo(nombreProvincia);
+            System.out.println("valor encontrado : " + regArrayList.getNombre() + " valor entrada: " + nombreProvincia);
             System.out.println(regArrayList.getId());
         }
 //agregar pruebas
 
     }
+
+    @Test(expected = NombreInvalidoException.class)
+
+    public void  buscarPorNombre_conNombreNull_retornaExcepcion() throws NombreInvalidoException {
+        List<Provincia> provinciaList =  instance.buscarProvinciasPorNombreGeneral(null);
+        fail("Debería haberse lanzado una excepción.");
+
+    }
+
 }

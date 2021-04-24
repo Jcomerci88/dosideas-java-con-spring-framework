@@ -2,14 +2,13 @@ package com.dosideas.service.impl;
 
 import com.dosideas.domain.Provincia;
 import com.dosideas.exception.NombreInvalidoException;
-import com.dosideas.exception.PaisNoEncontradoException;
+import com.dosideas.exception.ProvinciaInvalidaException;
 import com.dosideas.repository.ProvinciaRepository;
 import com.dosideas.service.ProvinciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collection;
 import java.util.List;
 
 
@@ -51,6 +50,26 @@ public class ProvinciaServiceImpl implements ProvinciaService {
         List<Provincia> provinciasList = provinciaRepository.findByNombre(nombre);
         return provinciasList;
     }
+
+    @Override
+    public List<Provincia> buscarProvinciasPorNombreGeneral(String nombreProvincia) throws NombreInvalidoException {
+        if (nombreProvincia == null)  {
+            throw new NombreInvalidoException("Nombre invalido = NULL");
+        }
+        List<Provincia> provinciasList = provinciaRepository.findByNombreIgnoreCase(nombreProvincia);
+        return provinciasList;
+    }
+
+    @Override
+    public Provincia insertarProvincia(Provincia provinciaInsert) throws ProvinciaInvalidaException {
+        if (provinciaInsert.getId() == null || provinciaInsert.getId_pais() == null || provinciaInsert.getNombre() == null) {
+            throw new ProvinciaInvalidaException("Algun campo es nulo");
+        }
+        if (provinciaInsert.getNombre().length() < 3) {
+            throw new ProvinciaInvalidaException("El nombre debe ser mayor a 2 caracteres");
+        }
+        return provinciaRepository.save(provinciaInsert);
+    }
 }
     /*
     public Collection<Provincia> buscarProvinciasPorNombreExacto(String nombre){
@@ -58,3 +77,6 @@ public class ProvinciaServiceImpl implements ProvinciaService {
         return retorno;
     }
  */
+
+
+
