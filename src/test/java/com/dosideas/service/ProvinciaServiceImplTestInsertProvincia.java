@@ -25,16 +25,17 @@ public class ProvinciaServiceImplTestInsertProvincia {
 
 
     @Test
-    public void  InsertProvincia_conNombreNuevo_retornaProvincia() throws NombreInvalidoException, ProvinciaInvalidaException {
-        //diferencia entre collection y list , porque collection no me andaba?(sugerencia curso)
+    public void  InsertProvincia_conNombreNuevo_retornaSave() throws NombreInvalidoException, ProvinciaInvalidaException {
         Provincia provinciaInsert = new Provincia();
         provinciaInsert.setId(24L);
         provinciaInsert.setNombre("Islas Malvinas");
         provinciaInsert.setId_pais(1L);
         Provincia provinciaInsertada =  instance.insertarProvincia(provinciaInsert);
+        //como valido si fue insertada o no?
         assertThat(provinciaInsertada).isNotNull();
         System.out.println("Se inserto provincia : " + provinciaInsertada.getNombre());
 
+        //busco para ver si inserto o no
         String nombreProvincia = "Islas malvinas";
         List<Provincia> provinciaList =  instance.buscarProvinciasPorNombreGeneral(nombreProvincia);
         assertThat(provinciaList).isNotNull();
@@ -44,21 +45,69 @@ public class ProvinciaServiceImplTestInsertProvincia {
             System.out.println("valor encontrado : " + regArrayList.getNombre() + " valor entrada: " + nombreProvincia);
             System.out.println(regArrayList.getId());
         }
-
 //este insert es en tiempo real y luego se borra por como esta realizada la base calculo, si hago el test por afuera no encuentra
+    }
 
+    @Test
+    public void  InsertProvincia_conIdExistente_retornaSave() throws NombreInvalidoException, ProvinciaInvalidaException {
+        Provincia provinciaInsert = new Provincia();
+        provinciaInsert.setId(18L);
+        provinciaInsert.setNombre("Islas Malvinas");
+        provinciaInsert.setId_pais(1L);
+        Provincia provinciaInsertada =  instance.insertarProvincia(provinciaInsert);
+        //como valido si fue insertada o no?
+        assertThat(provinciaInsertada).isNotNull();
+        System.out.println("Se inserto provincia : " + provinciaInsertada.getNombre());
 
+        //busco para ver si inserto o no
+        String nombreProvincia = "Islas malvinas";
+        List<Provincia> provinciaList =  instance.buscarProvinciasPorNombreGeneral(nombreProvincia);
+        assertThat(provinciaList).isNotNull();
+        for (Provincia regArrayList:provinciaList){
+            assertThat(regArrayList.getNombre()).isEqualToIgnoringCase(nombreProvincia);
+            System.out.println("valor encontrado : " + regArrayList.getNombre() + " valor entrada: " + nombreProvincia);
+            System.out.println(regArrayList.getId());
+        }
+        //el save no solo inserta sino que actualiza
     }
 
 
+    @Test(expected = ProvinciaInvalidaException.class)
 
-    @Test(expected = NombreInvalidoException.class)
-
-    public void  buscarPorNombre_conNombreNull_retornaExcepcion() throws NombreInvalidoException {
-        List<Provincia> provinciaList =  instance.buscarProvinciasPorNombreExacto(null);
+    public void  InsertProvincia_conIdNull_retornaExcepcion() throws ProvinciaInvalidaException {
+        //no veo la excepcion
+        Provincia provinciaInsert = new Provincia();
+        provinciaInsert.setId(null);
+        provinciaInsert.setNombre("Pepe");
+        provinciaInsert.setId_pais(1L);
+        Provincia provinciaInsertada =  instance.insertarProvincia(provinciaInsert);
         fail("Debería haberse lanzado una excepción.");
-
     }
+
+    @Test(expected = ProvinciaInvalidaException.class)
+
+    public void  InsertProvincia_conNombre_retornaExcepcion() throws ProvinciaInvalidaException {
+        //no veo la excepcion
+        Provincia provinciaInsert = new Provincia();
+        provinciaInsert.setId(5l);
+        provinciaInsert.setNombre(null);
+        provinciaInsert.setId_pais(1L);
+        Provincia provinciaInsertada =  instance.insertarProvincia(provinciaInsert);
+        fail("Debería haberse lanzado una excepción.");
+    }
+
+    @Test(expected = ProvinciaInvalidaException.class)
+
+    public void  InsertProvincia_conIdPaisNull_retornaExcepcion() throws ProvinciaInvalidaException {
+        //no veo la excepcion
+        Provincia provinciaInsert = new Provincia();
+        provinciaInsert.setId(1l);
+        provinciaInsert.setNombre("Pepe");
+        provinciaInsert.setId_pais(null);
+        Provincia provinciaInsertada =  instance.insertarProvincia(provinciaInsert);
+        fail("Debería haberse lanzado una excepción.");
+    }
+
     @Test(expected = NombreInvalidoException.class)
     public void  buscarPorNombre_conNombreMenor3Letras_retornaExcepcion() throws NombreInvalidoException {
         List<Provincia> provinciaList =  instance.buscarProvinciasPorNombreExacto("AB");

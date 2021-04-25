@@ -33,11 +33,9 @@ public class ProvinciaServiceImplTestNombreGeneral {
 
         for (Provincia regArrayList:provinciaList){
             assertThat(regArrayList.getNombre()).isEqualToIgnoringCase(nombreProvincia);
-            //assertThat(regArrayList.getNombre()).isEqualTo(nombreProvincia);
             System.out.println("valor encontrado : " + regArrayList.getNombre() + " valor entrada: " + nombreProvincia);
             System.out.println(regArrayList.getId());
         }
-//agregar pruebas
 
     }
 

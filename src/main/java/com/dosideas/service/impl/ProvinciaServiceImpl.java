@@ -18,13 +18,9 @@ import java.util.List;
 public class ProvinciaServiceImpl implements ProvinciaService {
 
 
-    // se pone por ejercicio
-    //ProvinciaRepository provinciaRepository = new ProvinciaRepositoryImpl();
-    // se saca por ejercicio
     @Autowired
     private final ProvinciaRepository provinciaRepository;
 
-    //se puede hacer por constructor o por setter
     public ProvinciaServiceImpl(ProvinciaRepository provinciaRepository) {
         this.provinciaRepository = provinciaRepository;
     }
@@ -62,21 +58,26 @@ public class ProvinciaServiceImpl implements ProvinciaService {
 
     @Override
     public Provincia insertarProvincia(Provincia provinciaInsert) throws ProvinciaInvalidaException {
-        if (provinciaInsert.getId() == null || provinciaInsert.getId_pais() == null || provinciaInsert.getNombre() == null) {
-            throw new ProvinciaInvalidaException("Algun campo es nulo");
+        if (provinciaInsert.getId() == null ) {
+            System.out.println("Insertar provincia excepcion por id nulo");
+            throw new ProvinciaInvalidaException("Id es nulo");
+        }
+        if (provinciaInsert.getId_pais() == null){
+            System.out.println("Insertar provincia excepcion por id_pais nulo");
+            throw new ProvinciaInvalidaException("Id_pais es nulo");
+        }
+        if (provinciaInsert.getNombre() == null){
+            System.out.println("Insertar provincia excepcion por nombre nulo");
+            throw new ProvinciaInvalidaException("Nombre es nulo");
         }
         if (provinciaInsert.getNombre().length() < 3) {
             throw new ProvinciaInvalidaException("El nombre debe ser mayor a 2 caracteres");
         }
+        // como se deberia retorna lo que devuelva el insert?
         return provinciaRepository.save(provinciaInsert);
     }
 }
-    /*
-    public Collection<Provincia> buscarProvinciasPorNombreExacto(String nombre){
-        Collection<Provincia> retorno = provinciaRepository.findByNombre(nombre);
-        return retorno;
-    }
- */
+
 
 
 

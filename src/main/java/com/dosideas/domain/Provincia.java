@@ -26,13 +26,7 @@ public class Provincia implements Serializable {
             nombre VARCHAR(50)
 );
 */
-/* me marca error al crear constructor , porque?
-    public Provincia(Long id, Long id_pais, String nombre) {
-        this.id = id;
-        this.id_pais = id_pais;
-        this.nombre = nombre;
-    }
-*/
+
 
     public Long getId() {
         return id;
