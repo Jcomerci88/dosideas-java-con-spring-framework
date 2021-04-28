@@ -35,6 +35,10 @@ public class ProvinciaServiceImplTestInsertProvincia {
         assertThat(provinciaInsertada).isNotNull();
         System.out.println("Se inserto provincia : " + provinciaInsertada.getNombre());
 
+        Provincia provinciaInsertada1 = instance.insertarProvincia(provinciaInsert);
+        assertThat(provinciaInsertada1).isNotNull();
+
+
         //busco para ver si inserto o no
         String nombreProvincia = "Islas malvinas";
         List<Provincia> provinciaList =  instance.buscarProvinciasPorNombreGeneral(nombreProvincia);
@@ -109,6 +113,7 @@ public class ProvinciaServiceImplTestInsertProvincia {
     }
 
     @Test(expected = NombreInvalidoException.class)
+
     public void  buscarPorNombre_conNombreMenor3Letras_retornaExcepcion() throws NombreInvalidoException {
         List<Provincia> provinciaList =  instance.buscarProvinciasPorNombreExacto("AB");
         fail("Debería haberse lanzado una excepción.");

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.List;
 
 
@@ -47,9 +48,19 @@ public class ProvinciaServiceImpl implements ProvinciaService {
         return provinciasList;
     }
 
+
+    public Collection<Provincia> buscarProvinciasPorNombreExactoCollection(String nombre) throws NombreInvalidoException {
+        if (nombre == null || nombre.length() < 3) {
+            throw new NombreInvalidoException("Nombre invalido = NULL");
+        }
+        Collection<Provincia> provinciasList = provinciaRepository.findByNombre(nombre);
+        return provinciasList;
+    }
+
     @Override
     public List<Provincia> buscarProvinciasPorNombreGeneral(String nombreProvincia) throws NombreInvalidoException {
         if (nombreProvincia == null)  {
+            //agregar log de excepcion
             throw new NombreInvalidoException("Nombre invalido = NULL");
         }
         List<Provincia> provinciasList = provinciaRepository.findByNombreIgnoreCase(nombreProvincia);

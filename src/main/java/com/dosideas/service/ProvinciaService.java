@@ -4,6 +4,7 @@ import com.dosideas.domain.Provincia;
 import com.dosideas.exception.NombreInvalidoException;
 import com.dosideas.exception.ProvinciaInvalidaException;
 
+import java.util.Collection;
 import java.util.List;
 
 /** Esta es la interfaz (contrato) de un componente de la capa de lógica de negocio.
@@ -14,6 +15,8 @@ public interface ProvinciaService {
 
     Provincia buscarPorId(Long id);
     List<Provincia> buscarProvinciasPorNombreExacto(String nombre) throws NombreInvalidoException;
+
+    Collection<Provincia> buscarProvinciasPorNombreExactoCollection(String nombre) throws NombreInvalidoException;
 
     List<Provincia> buscarProvinciasPorNombreGeneral(String nombreProvincia) throws NombreInvalidoException;
 
