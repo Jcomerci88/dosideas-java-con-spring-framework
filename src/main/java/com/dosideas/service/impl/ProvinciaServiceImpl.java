@@ -1,5 +1,6 @@
 package com.dosideas.service.impl;
 
+import com.dosideas.domain.Pais;
 import com.dosideas.domain.Provincia;
 import com.dosideas.exception.NombreInvalidoException;
 import com.dosideas.exception.ProvinciaInvalidaException;
@@ -87,6 +88,15 @@ public class ProvinciaServiceImpl implements ProvinciaService {
         // como se deberia retorna lo que devuelva el insert?
         return provinciaRepository.save(provinciaInsert);
     }
+
+    @Override
+    public List<Provincia> buscarTodosProvincia() {
+        return provinciaRepository.findAll();
+    }
+
+
+
+
 }
 
 

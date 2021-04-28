@@ -1,5 +1,6 @@
 package com.dosideas.service;
 
+import com.dosideas.domain.Pais;
 import com.dosideas.domain.Provincia;
 import com.dosideas.exception.NombreInvalidoException;
 import com.dosideas.exception.ProvinciaInvalidaException;
@@ -14,6 +15,7 @@ import java.util.List;
 public interface ProvinciaService {
 
     Provincia buscarPorId(Long id);
+
     List<Provincia> buscarProvinciasPorNombreExacto(String nombre) throws NombreInvalidoException;
 
     Collection<Provincia> buscarProvinciasPorNombreExactoCollection(String nombre) throws NombreInvalidoException;
@@ -21,4 +23,8 @@ public interface ProvinciaService {
     List<Provincia> buscarProvinciasPorNombreGeneral(String nombreProvincia) throws NombreInvalidoException;
 
     Provincia insertarProvincia(Provincia provinciaInsert) throws ProvinciaInvalidaException;
+//se agrega por api
+    List<Provincia> buscarTodosProvincia();
+
+
 }

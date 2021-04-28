@@ -64,3 +64,12 @@ Ya que el problema es realizar el "new", es evidente que nuestro Service no debe
  Es decir, delegaremos la instanciación de este Repositorya un tercero.
 
 
+2/5
+REST - que son servicios con y sin estado
+en cada cambio de api rest, con compilacion no basta hay que volver a ejecutar para ver los cambios
+poner get ok
+poner put
+poner delete
+poner post
+diferencia entre put y post?
+
