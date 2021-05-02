@@ -70,6 +70,9 @@ en cada cambio de api rest, con compilacion no basta hay que volver a ejecutar p
 poner get ok
 poner put
 poner delete
-poner post
+poner post ok
+cambiar la base de datos para que quede modificada siempre
 diferencia entre put y post?
+cada vez que ejecuto borra la base y tengo que crear de cero, usando none, cual es la diferencia con create drop?
+uso mysql workbench
 

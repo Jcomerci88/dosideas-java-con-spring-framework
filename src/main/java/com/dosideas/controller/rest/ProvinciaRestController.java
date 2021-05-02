@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import javax.validation.Valid;
 
 
 /**
@@ -67,4 +66,24 @@ public class ProvinciaRestController {
         Provincia provinciaInsertada =  instance.insertarProvincia(provinciaInsert);
     }
     */
+
+    @RequestMapping(value = "/delete", method = RequestMethod.DELETE)
+    public HttpStatus delete (@RequestBody Provincia provincia) throws ProvinciaInvalidaException {
+        provinciaService.borrarProvincia(provincia);
+        return HttpStatus.OK;
+        //return new ResponseEntity(provinciaaEliminar, HttpStatus.OK);
+        //esto anda pero no lo entiendo muy bien, ademas de que no se como funciona quitando el postman, haciendo una
+        //pagina donde escriba entenderia como se llama, por lo menos simulando
+        //porque el id no me lo respeta y guarda el numero proximo?
+        /*
+
+        {
+        hago post con esto, pero inserta 21 (hay 20)
+    "id": 23,
+    "id_pais": 1,
+    "nombre": "Islas Malvinas"
+}
+         */
+
+    }
 }

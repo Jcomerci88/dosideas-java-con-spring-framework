@@ -1,6 +1,5 @@
 package com.dosideas.service;
 
-import com.dosideas.domain.Pais;
 import com.dosideas.domain.Provincia;
 import com.dosideas.exception.NombreInvalidoException;
 import com.dosideas.exception.ProvinciaInvalidaException;
@@ -26,5 +25,5 @@ public interface ProvinciaService {
 //se agrega por api
     List<Provincia> buscarTodosProvincia();
 
-
+    void borrarProvincia(Provincia provincia);
 }

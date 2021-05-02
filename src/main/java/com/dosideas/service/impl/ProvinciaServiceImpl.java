@@ -1,6 +1,5 @@
 package com.dosideas.service.impl;
 
-import com.dosideas.domain.Pais;
 import com.dosideas.domain.Provincia;
 import com.dosideas.exception.NombreInvalidoException;
 import com.dosideas.exception.ProvinciaInvalidaException;
@@ -94,9 +93,10 @@ public class ProvinciaServiceImpl implements ProvinciaService {
         return provinciaRepository.findAll();
     }
 
-
-
-
+    @Override
+    public void borrarProvincia(Provincia provincia) {
+         provinciaRepository.delete(provincia);
+        }
 }
 
 
